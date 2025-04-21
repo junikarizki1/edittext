@@ -14,7 +14,7 @@
         android:text="Form Mahasiswa STMIK Pontianak"
         android:textSize="20dp"
         android:textAlignment="center"
-        android:background="#11326C"
+        android:background="#0a7d94"
         android:textColor="#ffffff"
         android:padding="40px"
         />
@@ -124,44 +124,44 @@
             />
     </LinearLayout>
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_gravity="center">
-    <Button
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Simpan"
-        android:padding="20px"
-        android:id="@+id/simpanButton"
-        android:backgroundTint="#11326C"
-        android:layout_marginRight="5dp"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tampil"
-        android:padding="20px"
-        android:id="@+id/tampilButton"
-        android:backgroundTint="#11326C"
-        android:layout_marginRight="5dp"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ubah"
-        android:padding="20px"
-        android:id="@+id/ubahButton"
-        android:backgroundTint="#11326C"
-        android:layout_marginRight="5dp"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hapus"
-        android:padding="20px"
-        android:id="@+id/hapusButton"
-        android:backgroundTint="#11326C"
-        />
-</LinearLayout>
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Simpan"
+            android:padding="20px"
+            android:id="@+id/simpanButton"
+            android:backgroundTint="#087817"
+            android:layout_marginRight="5dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tampil"
+            android:padding="20px"
+            android:id="@+id/tampilButton"
+            android:backgroundTint="#0a7d94"
+            android:layout_marginRight="5dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ubah"
+            android:padding="20px"
+            android:id="@+id/ubahButton"
+            android:backgroundTint="#11326C"
+            android:layout_marginRight="5dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hapus"
+            android:padding="20px"
+            android:id="@+id/hapusButton"
+            android:backgroundTint="#c91435"
+            />
+    </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
