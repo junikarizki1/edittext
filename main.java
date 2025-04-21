@@ -1,170 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+package com.ridwan.edittextbutton;
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Form Mahasiswa STMIK Pontianak"
-        android:textSize="20dp"
-        android:textAlignment="center"
-        android:background="#0a7d94"
-        android:textColor="#ffffff"
-        android:padding="40px"
-        />
+import android.database.Cursor;
+import android.graphics.Typeface;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nama"
-        android:textSize="17dp"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@android:drawable/btn_star"
-            android:drawablePadding="10dp"
-            android:hint="Tuliskan Nama anda"
-            android:id="@+id/namaEditText"
-            android:layout_weight="1"
-            />
-    </LinearLayout>
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NIM"
-        android:textSize="17dp"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@android:drawable/btn_star"
-            android:drawablePadding="10dp"
-            android:hint="Tuliskan NIM anda"
-            android:id="@+id/nimEditText"
-            android:layout_weight="1"
-            />
-    </LinearLayout>
+public class MainActivity extends AppCompatActivity {
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="kelas"
-        android:textSize="17dp"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@android:drawable/btn_star"
-            android:drawablePadding="10dp"
-            android:hint="Tuliskan Kelas anda"
-            android:id="@+id/kelasEditText"
-            android:layout_weight="1"
-            />
-    </LinearLayout>
+    EditText nimEditText, namaEditText, kelasEditText, semesterEditText, jurusanEditText;
+    Button simpanButton, tampilButton, ubahButton, hapusButton;
+    DBHelper db;
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Semester"
-        android:textSize="17dp"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@android:drawable/btn_star"
-            android:drawablePadding="10dp"
-            android:hint="Tuliskan Semester anda"
-            android:id="@+id/semesterEditText"
-            android:layout_weight="1"
-            />
-    </LinearLayout>
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Jurusan"
-        android:textSize="17dp"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@android:drawable/btn_star"
-            android:drawablePadding="10dp"
-            android:hint="Tuliskan Jurusan anda"
-            android:id="@+id/jurusanEditText"
-            android:layout_weight="1"
-            />
-    </LinearLayout>
+        nimEditText = findViewById(R.id.nimEditText);
+        namaEditText = findViewById(R.id.namaEditText);
+        kelasEditText = findViewById(R.id.kelasEditText);
+        semesterEditText = findViewById(R.id.semesterEditText);
+        jurusanEditText = findViewById(R.id.jurusanEditText);
+        simpanButton = findViewById(R.id.simpanButton);
+        tampilButton = findViewById(R.id.tampilButton);
+        ubahButton = findViewById(R.id.ubahButton);
+        hapusButton = findViewById(R.id.hapusButton);
+        db = new DBHelper(this);
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Simpan"
-            android:padding="20px"
-            android:id="@+id/simpanButton"
-            android:backgroundTint="#087817"
-            android:layout_marginRight="5dp"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tampil"
-            android:padding="20px"
-            android:id="@+id/tampilButton"
-            android:backgroundTint="#0a7d94"
-            android:layout_marginRight="5dp"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ubah"
-            android:padding="20px"
-            android:id="@+id/ubahButton"
-            android:backgroundTint="#11326C"
-            android:layout_marginRight="5dp"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hapus"
-            android:padding="20px"
-            android:id="@+id/hapusButton"
-            android:backgroundTint="#c91435"
-            />
-    </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/infoTextView"
-        />
-</LinearLayout>
+        simpanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view ) {
+                String nim_mhs = nimEditText.getText().toString();
+                String nama_mhs = namaEditText.getText().toString();
+                String kelas_mhs = kelasEditText.getText().toString();
+                String semester_mhs = semesterEditText.getText().toString();
+                String jurusan_mhs = jurusanEditText.getText().toString();
+                if (TextUtils.isEmpty(nim_mhs) || TextUtils.isEmpty(nama_mhs) || TextUtils.isEmpty(kelas_mhs) || TextUtils.isEmpty(semester_mhs) || TextUtils.isEmpty(jurusan_mhs))
+                    Toast.makeText(MainActivity.this, "Data Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+                else {
+                    Boolean checknim = db.checknim(nim_mhs);
+                    if (checknim == false) {
+                        Boolean insert = db.insertDataMhs(nim_mhs, nama_mhs, kelas_mhs, semester_mhs, jurusan_mhs);
+                        if (insert == true) {
+                            Toast.makeText(MainActivity.this, "Data Berhasil Ditambahkan", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(MainActivity.this, "Data Gagal Ditambahkan", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(MainActivity.this, "Data Sudah Ada", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+        tampilButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Cursor res = db.tampilDataMhs();
+                if (res.getCount() == 0) {
+                    Toast.makeText(MainActivity.this, "Tidak Ada Data", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                StringBuffer buffer = new StringBuffer();
+                while (res.moveToNext()){
+                    buffer.append("NIM Mahasiswa : " + res.getString(0)+"\n");
+                    buffer.append("Nama Mahasiswa : " + res.getString(1)+"\n");
+                    buffer.append("Kelas Mahasiswa : " + res.getString(2)+"\n");
+                    buffer.append("Semester Mahasiswa : " + res.getString(3)+"\n");
+                    buffer.append("Jurusan Mahasiswa : " + res.getString(4)+"\n\n");
+                }
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setCancelable(true);
+                builder.setTitle("Data Mahasiswa");
+                builder.setMessage(buffer.toString());
+                builder.show();
+            }
+        });
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+    }
+}
