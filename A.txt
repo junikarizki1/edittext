@@ -1,0 +1,28 @@
+Berikut jawaban saya sebagai mahasiswa yang cerdas dan memahami materi:
+
+---
+
+**1. Jelaskan apa itu variabel**
+
+Variabel adalah suatu mekanisme dalam pemrograman yang digunakan untuk menyimpan data yang dapat berubah selama program atau game dijalankan. Variabel memungkinkan kita untuk mencatat atau melacak berbagai data penting yang sifatnya dinamis, seperti jumlah skor pemain, sisa waktu permainan, atau jumlah nyawa. Tanpa variabel, kita tidak bisa mengelola data yang berubah-ubah tersebut.
+
+Data yang tidak bisa berubah dinamakan **konstanta (constant)**, sedangkan variabel bersifat fleksibel dan berubah sesuai jalannya program.
+
+---
+
+**2. Dengan menggunakan variabel pada game, apa saja yang bisa dibuat selain score?**
+
+Selain skor, variabel bisa digunakan untuk menyimpan berbagai macam data penting dalam permainan, contohnya:
+
+- **Jumlah nyawa pemain**: untuk menentukan kapan permainan berakhir jika nyawa habis.
+- **Waktu dalam permainan**: seperti timer mundur atau waktu permainan berlangsung.
+- **Level atau stage permainan saat ini**: menentukan tingkat kesulitan atau latar permainan.
+- **Jumlah musuh yang dikalahkan**: bisa digunakan sebagai syarat membuka fitur atau level baru.
+- **Kondisi item tertentu**: misalnya jumlah koin yang dikumpulkan, amunisi yang tersedia, atau status power-up.
+- **Progress atau checkpoint pemain**: agar bisa melanjutkan permainan dari titik tertentu.
+
+Dengan variabel, kita bisa membuat game yang interaktif dan memberikan pengalaman bermain yang dinamis dan menantang.
+
+---
+
+Kalau kamu butuh penjelasan lebih dalam atau contoh kode di Construct 2, aku juga siap bantu!
